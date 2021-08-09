@@ -1,0 +1,980 @@
+/*
+Stylsheet For Homepage of My Portfolio Site.
+Author: Piyush Joshi
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+/* Custom properties/variables  */
+:root {
+  --main-white: #f0f0f0;
+  --main-red: #be3144;
+  --main-blue: #45567d;
+  --main-gray: #303841;
+}
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+.element {
+  position: fixed;
+  height: 7vh;
+  width: 7vh;
+
+  margin: 0 auto;
+  background-color: red;
+  animation-name: stretch;
+  animation-duration: 4s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  margin: 1vh;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(0.3);
+    background-color: red;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: orange;
+    border-radius: 100%;
+  }
+  100% {
+    transform: scale(1);
+    background-color: yellow;
+    border-radius: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+
+html {
+  box-sizing: border-box;
+
+  /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {
+    /* position: relative; */
+    display: block;
+    position: fixed;
+    right: 2vmin;
+    height: fit-content;
+    background-color: white;
+  }
+  .topnav a {
+    font-size: 7vmin;
+  }
+  .topnav i {
+    font-size: 7vmin;
+  }
+  .topnav.responsive a.icon {
+    position: absolute;
+    font-size: 7vmin;
+    right: 2vmin;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+
+    display: block;
+    text-align: left;
+    font-size: 7vmin;
+  }
+}
+
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+/* Base styles */
+header ul {
+  align-items: center;
+  display: flex;
+  color: black;
+  justify-content: flex-end;
+  padding-right: 5vmax;
+  z-index: 2;
+}
+
+header {
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+  z-index: 1;
+}
+
+header ul a {
+  display: flex;
+  padding: 1vmax;
+  font-size: 1.5vmax;
+  color: black;
+  text-decoration: none;
+}
+
+header ul a i {
+  padding-right: 1vmin;
+  text-decoration: none;
+}
+
+header ul a:hover {
+  display: flex;
+  padding: 1vmax;
+  font-size: 1.5vmax;
+  border-style: solid;
+  border-right: 1vmin;
+  border-left: 1vmin;
+  border-top: 1vmin;
+  border-color: orangered;
+  cursor: pointer;
+}
+
+header ul a:visited {
+  display: flex;
+  /* padding: 1vw; */
+  color: black;
+  font-size: 3vh;
+  /* background-color: red; */
+  border-style: solid;
+  border-right: 1vh;
+  border-left: 1vh;
+  border-color: orangered;
+  cursor: pointer;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--main-white);
+}
+
+h1,
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-white);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* nav */
+
+
+
+
+
+/* Welcome section */
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+}
+
+.welcome-section > p {
+  font-size: 3rem;
+  font-weight: 200;
+  font-style: italic;
+  color: var(--main-red);
+}
+
+/* Projects section */
+
+.projects-section {
+  text-align: center;
+  padding: 10rem 2rem;
+  background: var(--main-blue);
+}
+
+.projects-section-header {
+  max-width: 640px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid var(--main-white);
+}
+
+@media (max-width: 28.75em) {
+  .projects-section-header {
+    font-size: 4rem;
+  }
+}
+
+/* "Automagic" image grid using no media queries */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 30.625em) {
+  .projects-section {
+    padding: 6rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  background: var(--main-gray);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+
+.code {
+  color: var(--main-gray);
+  transition: color 0.3s ease-out;
+}
+
+.project:hover .code {
+  color: #ff7f50;
+}
+
+.project-image {
+  height: calc(100% - 6.8rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-title {
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.btn-show-all {
+  font-size: 2rem;
+  background: var(--main-gray);
+  transition: background 0.3s ease-out;
+}
+
+.btn-show-all:hover {
+  background: var(--main-red);
+}
+
+.btn-show-all:hover > i {
+  transform: translateX(2px);
+}
+
+.btn-show-all > i {
+  margin-left: 10px;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+/* Contact section */
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+  background: var(--main-gray);
+}
+
+.contact-section-header > h2 {
+  font-size: 6rem;
+}
+
+@media (max-width: 28.75em) {
+  .contact-section-header > h2 {
+    font-size: 4rem;
+  }
+}
+
+.contact-section-header > p {
+  font-style: italic;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 980px;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.contact-details {
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 1px #1f1f1f;
+  transition: transform 0.3s ease-out;
+}
+
+.contact-details:hover {
+  transform: translateY(8px);
+}
+
+/* Footer */
+
+footer {
+  font-weight: 300;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  background: var(--main-gray);
+  border-top: 4px solid var(--main-red);
+}
+
+footer > p {
+  margin: 2rem;
+}
+
+footer i {
+  vertical-align: middle;
+}
+
+@media (max-width: 28.75em) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background: #000000;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.container {
+  padding: 15px 30px;
+  position: relative;
+  background: inherit;
+  width: 50%;
+}
+
+.container.left {
+  left: 0;
+}
+
+.container.right {
+  left: 50%;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: calc(50% - 8px);
+  right: -8px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.container.right::after {
+  left: -8px;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  top: calc(50% - 1px);
+  right: 8px;
+  background: #000000;
+  z-index: 1;
+}
+
+.container.right::before {
+  left: 8px;
+}
+
+.container .date {
+  position: absolute;
+  display: inline-block;
+  top: calc(50% - 15px);
+  text-align: center;
+  font-size: 3vmin;
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.container.left .date {
+  right: -75px;
+}
+
+.container.right .date {
+  left: -75px;
+}
+
+.container .icon {
+  position: absolute;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 9px 0;
+  top: calc(50% - 20px);
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 18px;
+  color: #000000;
+  z-index: 1;
+}
+
+.container.left .icon {
+  right: 56px;
+}
+
+.container.right .icon {
+  left: 56px;
+}
+
+.container .content {
+  padding: 30px 90px 30px 30px;
+  background: #ccccff;
+  position: relative;
+  border-radius: 0 500px 500px 0;
+}
+
+.container.right .content {
+  padding: 30px 30px 30px 90px;
+  border-radius: 500px 0 0 500px;
+}
+
+.container .content h2 {
+  margin: 0 0 10px 0;
+  font-size: 5vmin;
+
+  font-weight: normal;
+  color: #000000;
+}
+
+.container .content p {
+  margin: 0;
+  font-size: 3.5vmin;
+  line-height: 22px;
+  color: #000000;
+}
+
+@media (max-width: 600px) {
+  .timeline::after {
+    left: 30px;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 10px;
+  }
+
+  .container.right {
+    left: 0%;
+  }
+
+  .container.left::after,
+  .container.right::after {
+    left: 22px;
+  }
+
+  .container.left::before,
+  .container.right::before {
+    left: 38px;
+    border-color: transparent #000000 transparent transparent;
+  }
+
+  .container.left .date,
+  .container.right .date {
+    right: auto;
+    left: 35px;
+    top: calc(50% - 35px);
+  }
+
+  .container.left .icon,
+  .container.right .icon {
+    right: auto;
+    left: 85px;
+    width: 20px;
+    height: 5px;
+    top: calc(50% - 12px);
+  }
+
+  .container.left .content,
+  .container.right .content {
+    padding: 5px 0px 0px 30px;
+    border-radius: 3vmin;
+    height: fit-content;
+  }
+
+  .container .content h2 {
+    margin: 0 0 20px 0;
+    margin-left: 2vmin;
+    font-size: 6vmin;
+    font-weight: normal;
+    color: #000000;
+    margin-top: 2vmin;
+  }
+
+  .container .content p {
+    margin: 0;
+    font-size: 4vmin;
+    line-height: 22px;
+    padding-left: 4vmin;
+    padding-bottom: 2vmin;
+    padding-right: 2vmin;
+    padding-top: 0%;
+    color: #000000;
+  }
+  .achivements {
+    /* background-color: skyblue; */
+    height: fit-content;
+  }
+
+  .subheading {
+    font-size: 3.8vmin;
+    display: flex;
+    font-family: "Roboto Mono", monospace;
+    left: 10%;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    padding-top: 12vh;
+    height: 6vh;
+    width: 80%;
+    border-radius: 2vh;
+    font-weight: 900;
+  }
+  .heading {
+    font-size: 15vmin;
+    display: flex;
+    border: 0ch;
+    border-bottom: 0.5vh;
+    border-style: solid;
+    left: 10%;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    left: 38%;
+    /* font-family: "Roboto Mono", monospace; */
+    font-family: "Dancing Script", cursive;
+    height: 9vh;
+    top: 11vh;
+    width: 25%;
+    border-bottom: 3px solid #000;
+    font-weight: 900;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+}
+
+
+
+
+.certificates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.certificate {
+  width: 45vh;
+ 
+  margin: 3vh;
+  border: goldenrod;
+  border-style: groove;
+  border-width: 0.2vh;
+  display: flexbox;
+  /* justify-content: center; */
+  text-align: center;
+  border-radius: 1vh;
+  background-color: #fffff0;
+  box-shadow: 0.7vh 0.7vh rgba(255, 217, 0, 0.363);
+}
+
+.certificate p {
+  font-size: 2rem;
+    font-family: "Roboto Mono", monospace;
+    color: black;
+    padding: 1vh;
+    text-align: left;
+    font-weight: 700;
+}
+
+.certificate .description {
+  border: 0ch;
+  border-top: 0.1vh;
+  border-bottom: 0.1vh;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+}
+
+.certificate .description p {
+  font-size: 2vh;
+  /* font-family: "Roboto Mono", monospace; */
+  padding: 2vh;
+  font-weight: bolder;
+  color: black;
+   height: 15vh; 
+  
+}
+
+.certificate a {
+  font-size: 4vh;
+  font-family: "Roboto Mono", monospace;
+  background-color: #ffc63a;
+  padding: 1vh;
+  color: black;
+  border-radius: 2vh;
+  text-decoration: none;
+  font-weight: 900;
+  margin-top: 20vmin;
+}
+
+.certificate a:visited {
+  font-size: 4vh;
+  font-family: "Roboto Mono", monospace;
+  background-color: #ffc63a;
+  padding: 1vh;
+  color: black;
+  border-radius: 2vh;
+  text-decoration: none;
+  /* position: fixed; */
+  font-weight: 900;
+}
+.certificate a:hover {
+  font-size: 5vh;
+  padding: 1vh;
+  border-radius: 2vh;
+  font-family: "Roboto Mono", monospace;
+  background-color: gold;
+  cursor: pointer;
+  text-decoration: none;
+  /* position: fixed; */
+  font-weight: 900;
+}
+
+@media (max-width: 600px) {
+  .certificates {
+    display: block;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .certificate {
+    width: 90vw;
+    /* height: fit-content; */
+    margin: 2vh;
+    border: goldenrod;
+    border-style: groove;
+    border-width: 0.2vh;
+    display: flexbox;
+    /* justify-content: center; */
+    text-align: center;
+    border-radius: 1vh;
+    background-color: #fffff0;
+    box-shadow: 0.7vh 0.7vh rgba(255, 217, 0, 0.363);
+  }
+
+  .certificate p {
+    font-size: 6vmin;
+    font-family: "Roboto Mono", monospace;
+    color: black;
+    padding: 1vh;
+    text-align: left;
+    font-weight: 900;
+  }
+
+  .certificate .description {
+    border: 0ch;
+    border-top: 0.1vh;
+    border-bottom: 0.1vh;
+    margin-bottom: 2vmin;
+    margin-top: 2vh;
+  }
+
+  .certificate .description p {
+    font-size: 3vmin;
+    /* font-family: "Roboto Mono", monospace; */
+    padding: 2vmin;
+    font-weight: bolder;
+    color: black;
+    height: fit-content;
+  }
+
+  .certificate a {
+    font-size: 4vh;
+    font-family: "Roboto Mono", monospace;
+    background-color: #ffc63a;
+    padding: 1vmin;
+    color: black;
+    margin-top: 20vmin;
+    border-radius: 2vh;
+    /* position: absolute; */
+    text-decoration: none;
+    font-weight: 900;
+  }
+
+  .certificate a:visited {
+    font-size: 4vh;
+    font-family: "Roboto Mono", monospace;
+    background-color: #ffc63a;
+    padding: 1vh;
+    color: black;
+    border-radius: 2vh;
+    text-decoration: none;
+    /* position: fixed; */
+    font-weight: 900;
+  }
+  .certificate a:hover {
+    font-size: 5vh;
+    padding: 1vh;
+    border-radius: 2vh;
+    font-family: "Roboto Mono", monospace;
+    background-color: gold;
+    cursor: pointer;
+    text-decoration: none;
+    /* position: fixed; */
+    font-weight: 900;
+  }
+}
+
+.achivements {
+  /* background-color: skyblue; */
+  height: fit-content;
+}
+/* skilller for skill bars */
+.skilller {
+  width: 100%; /* Full width */
+  background-color: #ddd; /* Grey background */
+}
+
+.skills {
+  text-align: right; /* Right-align text */
+  padding-top: 10px; /* Add top padding */
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+}
+
+.skilllerhtml {width: 90%; background-color: #04AA6D;} /* Green */
+.css {width: 80%; background-color: #2196F3;} /* Blue */
+.js {width: 65%; background-color: #f44336;} /* Red */
+.php {width: 60%; background-color: #808080;} /* Dark Grey */
+
+.redbox {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+.bluebox {
+  padding: 20px;
+  background-color: #008AFF; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+.darkbox {
+  padding: 20px;
+  background-color: #1E0073; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+.ghoda{
+  width: 50%;
+  margin: 0 auto;
+}
+.profile img {
+    float: none;
+    display: block;
+  margin-right: 20px;
+  border-radius: 50%;
+  align: center;
+}
+
+
+
+/* Add media queries for responsiveness. This will center both the text and the image inside the profile */
+@media (max-width: 500px) {
+
+  .profile img {
+    margin: auto;
+    float: none;
+    display: block;
+  }
+}
+.bar{
+  background-color: #EEE;
+  padding: 2px;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #FFF;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+.bar::before{
+  content:  attr(data-skill);
+  background-color: #f3b0ff;
+  display: inline-block;
+  padding: 5px 0 5px 10px;
+  border-radius: inherit;
+  animation: load 2s 0s;
+  -webkit-animation: load 2s 0s;
+  -moz-animation: load 2s 0s;
+  -o-animation: load 2s 0s;
+}
+
+.bar.front::before{
+  background-color: #ffcc33;
+}
+.bar.back::before{
+  background-color: #a6cfe3;
+}
+
+.bar.learning::before{
+  width: calc(20% - 10px);
+}
+.bar.basic::before{
+  width: calc(40% - 10px);
+}
+.bar.intermediate::before{
+  width: calc(60% - 10px);
+}
+.bar.advanced::before{
+  width: calc(80% - 10px);
+}
+.bar.expert::before{
+  width: calc(100% - 10px);
+}
+
+
+
+
