@@ -930,7 +930,9 @@ input[type="submit"]:hover{
     .contact-item{
         flex-direction: column;
     }
-
+    .mypic{
+ border-radius: 50%;
+}
     .contact-img{
         margin: 0 0 2rem 0;
     }
@@ -940,3 +942,4 @@ input[type="submit"]:hover{
         order: 2;
     }
 }
+
