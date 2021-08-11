@@ -1,945 +1,327 @@
-/*
-Stylsheet For Homepage of My Portfolio Site.
-Author: Piyush Joshi
-*/
-/*Start global*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-html{
-    font-size: 10px;
-    color: white;
+<!DOCTYPE html>
+<html lang="en">
 
-}
-
-body{
-    width: 100%;
-    height: 100%;
-    /* background: url("images/sitebg.png") no-repeat center fixed;
-    background-size: cover; */
-    overflow: auto;
-}
-
-section{
-    padding: 6rem 0;
-}
-
-a{
-    text-decoration: none;
-    color: white;
-}
-
-p{
-    font-size: 1.8rem;
-    font-weight: 300;
-    font-family: 'product_sansregular';
-}
-
-img{
-    width: 100%;
-    border-radius: 1.5rem;
-}
-
-@font-face {
-    font-family: 'black_bones_personal_useRg';
-    src: url('fonts/black_bones-webfont.woff2') format('woff2'),
-         url('fonts/black_bones-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'product_sansregular';
-    src: url('fonts/productsans-regular-webfont.woff2') format('woff2'),
-         url('fonts/productsans-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/*End global*/
-
-/* ---- reset ---- */ 
-body{ 
-    margin:0; 
-    font:normal 75% Arial, Helvetica, sans-serif; 
-} 
-
-canvas{ 
-    display: block; 
-    vertical-align: top; 
-} 
-
-/* ---- particles.js container ---- */ 
-#particles-js{ 
-    position: fixed;
-    width: 100%; 
-    height: 100%; 
-    background-color: black; 
-    background-size: 100%; 
-    background-position: top;
-} 
-
-/*Start scrollbar*/
-::-webkit-scrollbar{
-    width: 5px;
-}
-
-::-webkit-scrollbar-thumb{
-    background: linear-gradient(transparent, #0e53d3);
-    border-radius: 12px;
-}
-
-::-webkit-scrollbar-track{
-    background: black;
-}
-/*End scrollbar*/
-
-/*Start reusable*/
-.container{
-    width: 90%;
-    max-width: 120rem;
-    height: 100%;
-    margin: 0 auto;
-    position: relative;
-}
-
-.section-heading{
-    text-align: center;
-    margin-bottom: 10rem;
-}
-
-.section-heading h1{
-    font-size: 3.5rem;
-    color: rgba(255, 255, 255, .3);
-    text-transform: uppercase;
-    font-weight: 300;
-    position: relative;
-    margin-bottom: 1rem;
-}
-
-.section-heading h1::before,
-.section-heading h6::after{
-    content: '';
-    position: absolute;
-    bottom: -.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.75);
-}
-
-.section-heading h1::before{
-    width: 10rem;
-    height: 3px;
-    border-radius: .8rem;
-}
-
-.section-heading h1::after{
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 100%;
-    bottom: -1rem;
-}
-
-.section-heading h6{
-    font-size: 1.6rem;
-    font-weight: 300;
-}
-
-.has-margin-right{
-    margin-right: 5rem;
-}
-/*End end reusable*/
-
-/*Start header*/
-header{
-    width: 100%;
-    height: 100vh;
-}
-
-.top-nav{
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: -100vh;
-    z-index: 50;
-    background-color: #0B0C10;
-    border-bottom-right-radius: 100%;
-    border-bottom-left-radius: 100%;
-    transition: all 650ms cubic-bezier(1,0,0,1);
-}
-
-.nav-list{
-    list-style: none;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-li{
-    margin: 0.2rem;
-}
-
-.nav-link{
-    font-family:"black_bones_personal_useRg", sans-serif;;
-    font-size: 5rem;
-    padding: 1rem;
-}
-
-.nav-link:hover,
-.nav-link:focus{
-    background: linear-gradient(to top, #380036, #0CBABA);
-    -webkit-background-clip: text;
-    -webkit-text-fill-colour: transparent;
-    color: transparent;
-}
-
-.top-nav.open{
-    top: 0;
-    border-radius: initial;
-}
-
-.menu-toggler{
-    position: fixed;
-    top: 5rem;
-    right: 5rem;
-    width: 5rem;
-    height: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 1500;
-    transition: transform 650ms ease-out;
-}
-
-.menu-toggler.open{
-    transform: rotate(-45deg);
-}
-
-.bar{
-    background: linear-gradient(to left , #380036, #0CBABA);
-    width: 100%;
-    height: 4px;
-    border-radius: .8rem;
-
-}
-
-.bar.half{
-    width: 50%;
-}
-
-.bar.start{
-    transform-origin: right;
-    transform: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
-}
-
-.open .bar.start{
-    transform: rotate(-450deg) translateX(.8rem);
-}
-
-.bar.end{
-    align-self: flex-end;
-    transform-origin: left;
-    transform: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
-}
-
-.open .bar.end{
-    transform: rotate(-450deg) translateX(-.8rem);
-}
-
-
-.landing-text{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    text-align: center;
-    z-index: 1;
-}
-
-.landing-text h1{
-    font-size: 20rem;
-    font-family: 'black_bones_personal_useRg', sans-serif    ;
-    background: linear-gradient(to top ,#380036, #0CBABA);
-    -webkit-background-clip: text;
-    -webkit-text-fill-colour: transparent;
-    padding: 1rem;
-    user-select: none;
-    color: transparent;
-    letter-spacing: 0.5rem;
-}
-
-.landing-text h6{
-    font-size: 2rem;
-    font-weight: 300;
-}
-
-.icon-scroll,
-.icon-scroll:before {
-    position: absolute;
-    left: 50%
-}
-.icon-scroll {
-    width: 30px;
-    height: 50px;
-    margin-left: -20px;
-    bottom: 50px;
-    margin-top: -35px;
-    border: 2px solid #fff;
-    border-radius: 25px
-}
-@media (max-width: 767px) {
-    .icon-scroll {
-        position: relative
-    }
-}
-.icon-scroll:before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: #fff;
-    margin-left: -4px;
-    top: 8px;
-    border-radius: 4px;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-    animation-name: scroll
-}
-@keyframes scroll {
-    0% {
-        opacity: 1
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(26px)
-    }
-}
-/*End header*/
-
-/*Start about*/
-.about .container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-heading{
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 0;
-    margin-bottom: 6rem;
-}
-
-.about-heading h1{
-    color: white;
-    font-size: 10rem;
-    opacity: .3;
-}
-
-.about-heading h6{
-    font-size: 2rem;
-    font-weight: 300;
-}
-
-.profile-img{
-    flex: 1;
-    margin-right: 5rem;
-}
-
-.about-details{
-    flex: 1;
-}
-
-.about-details p{
-    line-height: 2.5rem;
-}
-/*
-a.button {
-    position: relative;
-    padding: 20px 50px;
-    display: flex;
-    text-decoration: none;
-    text-transform: uppercase;
-    width: 200px;
-    overflow: hidden;
-    border-radius: 40px;
-    margin-top: 3rem;
-    margin-left: 14rem;
-}
-  
-a span {
-    position: relative;
-    color: #fff;
-    font-size: 20px;
-    font-family: Arial;
-    letter-spacing: 3px;
-    z-index: 1;
-}
-  
-a .liquid {
-    position: absolute;
-    top: -65px;
-    left: 0;
-    width: 200px;
-    height: 200px;
-    background: #3c75e0;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
-    transition: .5s;
-}
-  
-a .liquid::after,
-a .liquid::before {
-    content: '';
-    width: 200%;
-    height: 200%;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -75%);
-    background: #000;
-}
-  
-a .liquid::before {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Piyush Joshi</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" charset="utf-8">
+    <link rel="icon" href="images/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     
-    border-radius: 45%;
-    background: rgba(20, 20, 20, 1);
-    animation: animate 5s linear infinite;
-}
-  
-a .liquid::after {
     
-    border-radius: 40%;
-    background: rgba(20, 20, 20, .5);
-    animation: animate 10s linear infinite;
-}
-  
-a:hover .liquid{
-    top: -120px;
-}
-*/
-.social-media{
-    margin-top: 4rem;
-}
-
-.social-media i{
-    letter-spacing: 3rem;
-    font-size: 5rem;
-    transition: color 650ms;
-}
-
-.fa-linkedin:hover{
-    color: #0e76a8;
-}
-
-.fa-github-square:hover{
-    color: rgb(161, 161, 161);
-}
-
-.fa-twitter-square:hover{
-    color: #38a1f3;
-}
-/*End about*/
-
-
-
-/*Start skills*/
-.my-skills{
-    margin-top: 10rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-gap: 2.5rem;
-    text-align: center;
-
-}
-
-.skill{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
-
-.skill h1{
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 2rem -2px 2rem 0;
-}
-
-.icon-container{
-    width: 10rem;
-    height: 10rem;
-    margin-bottom: 2rem;
-    display: flex;
-}
-
-.icon-container1{
-    border-radius: 1rem;
-    background-color: white;
-    width: 9rem;
-    height: 9rem;
-    margin-bottom: 2rem;
-    display: flex;
-}
-
-.icon-container2{
-    width: 9rem;
-    height: 9rem;
-    margin-bottom: 2rem;
-    display: flex;
-}
-/*End skills*/
-
-
-
-/*Start projects*/
-.projects-item{    
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    margin-bottom: 5rem;
-}
-
-.projects-item:last-child{
-    margin-bottom: 0;
-}
-
-.projects-img{
-    flex: 1;
-}
-
-.projects-header{
-    overflow: auto;
-}
-.projects-header h1{
-    float: left;
-}
-
-.projects-header img{
-    position: relative;
-    width: 35px;
-    height: 100%;
-    margin: 1rem auto;
-}
-
-.projects-description{
-    flex: 1;
-}
-
-.projects-description h1{
-    font-size: 3rem;
-    font-weight: 300;
-    margin: 1rem 0;
-}
-
-.projects-description h6{
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    font-weight: 300;
-    opacity: 0.3;
-}
-
-.projects-description .cta{
-    display: inline-block;
-    margin-top: 2.5rem;
-    font-size: 3rem;
-    text-transform: uppercase;
-    transition: color 650ms;
-}
-
-.fa-github:hover{
-    color:  #1f4a9b;
-}
-/*End projects*/
-
-
-
-
-/*Start timeline*/
-.timeline ul{
-    border-left: 6px solid #1f4a9b;
-    border-radius: .8rem;
-    background-color: rgba(0, 0, 0, 0.192);
-    margin: 0 auto;
-    position: relative;
-    padding: 5rem;
-    list-style: none;
-    text-align: left;
-    width: 70%;
-}
-
-.timeline h1{
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-weight: 300;
-    margin-bottom: 1rem;
-    opacity: .3;
-}
-
-.timeline .date{
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    position: relative;
-}
-
-.timeline .date:last-of-type{
-    padding-bottom: 0;
-    margin-bottom: 0;
-    border: none;
-}
-
-.timeline .date::before,
-.timeline .date::after{
-    position: absolute;
-    display: block;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.timeline .date::before{
-    content: attr(data-date);
-    left: -20rem;
-    text-align: right;
-    min-width: 12rem;
-    font-size: 1.5rem;
-}
-
-.timeline .date::after{
-    content: '';
-    box-shadow: 0 0 0 4px #1f4a9b;
-    border-radius: 100%;
-    left: -6.3rem;
-    height: 1.5rem;
-    width: 1.5rem;
-    background-color: #171818;
-}
-
-.timeline p{
-    line-height: 2.5rem;
-}
-/*End Timeline*/
-
-
-
-/*Start Contact*/
-.contact-item{    
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    margin-bottom: 5rem;
-}
-
-.contact-item:last-child{
-    margin-bottom: 0;
-}
-
-.contact-img{
-    flex: 1;
-}
-
-.contact-description{
-    flex: 1;
-}
-
-.contact-description h1{
-    font-size: 3rem;
-    font-weight: 300;
-    margin: 1rem 0;
-}
-
-.contact-description h6{
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    font-weight: 300;
-    opacity: 0.3;
-}
-
-.contact-description .cta{
-    display: inline-block;
-    margin-top: 2.5rem;
-    font-size: 3rem;
-    text-transform: uppercase;
-    transition: color 650ms;
-}
-
-.fa-github:hover{
-    color:  #1f4a9b;
-}
-
-.social-media1{
-    margin-top: 4rem;
-}
-
-.social-media1 i{
-    letter-spacing: 5rem;
-    font-size: 5rem;
-    transition: color 650ms;
-}
-
-/*
-form{
-    width: 70%;
-    margin: 0 auto;
-}
-
-form-label{
-    font-size: 1.5rem;
-}
-
-input,
-textarea{
-    font-size: 1.5rem;
-    font-weight: 300;
-    font-family: 'product_sansregular';
-    width: 78%;
-    padding: 1rem;
-    margin-bottom: 5px;
-    border: none;
-    background-color: #0f203d;
-    color: white;
-    outline-color: #0e53d3;
-    border-radius: .4rem;
-    display: block;
-    margin: 0 auto;
-}
-
-input[type="submit"]{
-    width: 10em;
-    height: 3em;
-    background-color: #1f4a9b;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: .4rem;
-    cursor: pointer;
-    transition: background-color 650ms;
-    display: block;
-    margin: 0 auto;
-}
-
-input[type="submit"]:hover{
-    color: #221e3f;
-    background-color: rgb(240, 226, 226);
-}
-*/
-/*End contact*/
-
-
-/*Start footer*/
-.copyright{
-    width: 100%;
-    text-align: center;
-    /* background-color: #0f203d4b;   */
-    padding: 2rem 0;
-    position: relative;
-}
-
-.up{
-    position: absolute;
-    width: 5rem;
-    height: 5rem;
-    background-color: white;
-    top: -2.5rem;
-    right: 5rem;
-    border-radius: 100%;
-    display: flex;
-    animation: pulse 2s infinite;
-    cursor: pointer;
-}
-
-.up i{
-    color: #16162d;
-    font-size: 2rem;
-    margin: auto;
-}
-
-.copyright p{
-    user-select: none;
-    font-size: 1.4rem;
-}
-/*End footer*/
-
-
-/*Start animations*/
-@keyframes pulse{
-    0%{
-        box-shadow: 0 0 0 0 #47a5f1;
-    }
-    70%{
-        box-shadow: 0 0 0 2rem rgba(253, 87, 191, 0);
-    }
-    100%{
-        box-shadow: 0 0 0 2rem rgba(253, 87, 191, 0);
-    }
-}
-
-@keyframes animate {
-    0% {
-      transform: translate(-50%, -75%) rotate(0deg);
-    }
-    100% {
-      transform: translate(-50%, -75%) rotate(360deg);
-    }
-  }
-/*End animations*/
-
-@media screen and (max-width: 768px) {
-
-    .landing-text h1{
-        font-size: 15rem;
-    }
-
-    .landing-text h6{
-        font-size: 1.7rem;
-    }
-
-    .nav-list{
-        flex-direction: column;
-    }
-
-    li{
-        margin: auto;
-    }
-
-    .nav-link{
-        font-size: 4.5rem;
-    }
-
-    .about-heading h1{
-        font-size: 8rem;
-    }
-
-    .section-heading h1{
-        font-size: 3rem;
-    }
-
-    .about-details .nav-list{
-        flex-direction: initial;
-    }
-
-    .about-details li{
-        margin: 0 2rem;
-    }
-
-    .icon-container{
-        width: 7rem;
-        height: 7rem;
-    }
-
-    .icon-container i{
-        font-size: 4rem;
-    }
-
-    .social-media1 i{
-        letter-spacing: 1rem;
-    }
-
-    .social-media i{
-        letter-spacing: 1rem;
-    }
-
-    .timeline ul{
-        margin: 0 0 0 auto;
-    }
-
-    .timeline .date::before{
-        left: -18.6rem;
-    }
-
-    .timeline .date::after{
-        left: -5.9rem;
-    }
-    /*.button{
-        right: 2cm;
-    }*/
-
-    .icon-container1{
-        height: 7rem;
-        width: 7rem;
-    }
-
-    .icon-container2{
-        height: 7rem;
-        width: 7rem;
-    }
-
-}
-
-@media screen and (max-width: 600px){
-
-    .menu-toggler{
-        top: 2rem;
-        right: 2rem;
-    }
-
-    .landing-text h1{
-        font-size: 8rem;
-    }
-
-    .landing-text h6{
-        font-size: 1.4rem;
-    }
-
-    .nav-link{
-        font-size: 3.5rem;
-    }
-
-    .about .container{
-        flex-direction: column;
-    }
-
-    .profile-img{
-        margin: 0 0 7rem 0;
-    }
-
-    .projects-item{
-        flex-direction: column;
-    }
-
-    .projects-img{
-        margin: 0 0 2rem 0;
-    }
-
-    .projects-description{
-        margin: 0;
-        order: 2;
-    }
-
-    .timeline p{
-        font-size: 1.6rem;
-    }
-
-    .timeline .date::before{
-        font-size: 1.4rem;
-    }
-
-    form{
-        width: 100%;
-    }
-
-    .up{
-        right: 2rem;
-    }
-
-    .contact-item{
-        flex-direction: column;
-    }
-    .mypic{
- border-radius: 50%;
-}
-    .contact-img{
-        margin: 0 0 2rem 0;
-    }
-
-    .contact-description{
-        margin: 0;
-        order: 2;
-    }
-}
-
+</head>
+
+<body>
+    <header>
+        <!-- particles.js container -->
+        <div id="particles-js"></div>
+
+
+        <!--Navbar-->
+        <div class="menu-toggler">
+            <div class="bar half start"></div>
+            <div class="bar"></div>
+            <div class="bar half end"></div>
+        </div>
+        <nav class="top-nav">
+            <ul class="nav-list">
+                <li>
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li>
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li>
+                    <a href="#tools" class="nav-link">Tools</a>
+                </li>
+                <li>
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li>
+                    <a href="#timelines" class="nav-link">Timeline</a>
+                </li>
+                <li>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!--Landing text-->
+        <div class="landing-text">
+            <h1>Piyush Joshi</h1>
+            <h6>I build things for the web.</h6>
+        </div>
+    </header>
+    <!--
+    <div class="icon-scroll"></div>
+    -->
+
+    <!--About-->
+    <section class="about" id="about">
+        <div class="container">
+<div class="mypic">
+            <div class="profile-img" data-aos="fade-down" data-aos-delay="300">
+                <img src="https://www.learnvern.com/storage/resume_images/user_613110.png" alt="">
+                </div>
+            </div>
+            <div class="about-details" data-aos="fade-up" data-aos-delay="600">
+                <div class="about-heading">
+                    <h1>About</h1>
+                    <h6>Myself</h6>
+                </div>
+                <p>
+                    Hello! I'm Piyush, an engineering student based in Parbhani, India who enjoys building things that live on the internet. I develop exceptional websites and web apps that provide intuitive, pixel-perfect user interfaces. I'm persuing Diploma in Computer
+                    Engineering from Government Polytechnic, Jintur, which is affiliated to MSBTE.
+                </p>
+                <div class="social-media">
+                    <ul class="nav-list">
+                        <li>
+                            <a href="https://www.linkedin.com/in/piyushjoshi-mh/" target="_blank" class="icon-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/piyushL337" target="_blank" class="icon-link">
+                                <i class="fab fa-github-square"></i>
+                            </a>
+                        </li>
+                        
+                        </li>
+                    </ul>
+                    <!--
+                    <a href="#" class="button">
+                        <span>Resume</span>
+                        <div class="liquid"></div>
+                    </a>
+                    -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Tools-->
+    <section class="tools" id="tools">
+        <div class="container">
+            <div class="section-heading">
+                <h1>My Tools</h1>
+                <h6>I've been working with recently</h6>
+            </div>
+            <div class="my-skills">
+                <div class="skill" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-container">
+                        <img src="https://img.icons8.com/color/480/000000/python.png" />
+                    </div>
+                </div>
+                <div class="skill" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-container">
+                        <img src="https://img.icons8.com/color/480/000000/html-5.png" />
+                    </div>
+                </div>
+                <div class="skill" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-container">
+                        <img src="https://img.icons8.com/color/480/000000/css3.png" />
+                    </div>
+                </div>
+                <div class="skill" data-aos="fade-up" data-aos-delay="400">
+                    <div class="icon-container">
+                        <img src="https://img.icons8.com/color/480/000000/javascript.png" />
+                    </div>
+                </div>
+                <div class="skill" data-aos="fade-up" data-aos-delay="500">
+                    <div class="icon-container">
+                        <img src="https://img.icons8.com/color/480/000000/bootstrap.png" />
+                    </div>
+                </div>
+                <div class="skill" data-aos="fade-up" data-aos-delay="600">
+                    <div class="icon-container">
+                        <img src="https://img.icons8.com/color/480/000000/sass.png" />
+                    </div>
+                </div>
+                <div class="skill" data-aos="fade-up" data-aos-delay="700">
+                    <div class="icon-container">
+                        <img src="https://img.icons8.com/color/480/000000/google-cloud-platform.png" />
+                    </div>
+                </div>
+                <div class="skill" data-aos="fade-up" data-aos-delay="800">
+                    <div class="icon-container">
+                        <img src="https://img.icons8.com/color/480/000000/c-programming.png" />
+                    </div>
+                </div>
+                <div class="skill" data-aos="fade-up" data-aos-delay="900">
+                    <div class="icon-container">
+                        <img src="https://img.icons8.com/color/480/000000/c-plus-plus-logo.png" />
+                    </div>
+                </div>
+                <div class="skill" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="icon-container">
+                        <img src="https://img.icons8.com/color/480/000000/git.png" />
+                    </div>
+                </div>
+                <div class="skill" data-aos="fade-up" data-aos-delay="1100">
+                    <div class="icon-container">
+                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+                    </div>
+                </div>
+                <div class="skill" data-aos="fade-up" data-aos-delay="1200">
+                    <div class="icon-container1">
+                        <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Projects-->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-heading">
+                <h1>Projects</h1>
+                <h6>Some projects I've built</h6>
+            </div>
+            <div class="projects-item">
+                <div class="projects-img has-margin-right" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://raw.githubusercontent.com/piyushL337/Fluzy/main/screenshot.png" alt="1st project">
+                </div>
+                <div class="projects-description" data-aos="fade-up" data-aos-delay="200">
+                    <div class="projects-header">
+                        <h1>Fluzy</h1>
+                        <img src="https://img.icons8.com/color/480/000000/html-5.png"/>
+                        <img src="https://img.icons8.com/color/480/000000/css3.png"/>
+                        <img src="https://img.icons8.com/color/480/000000/bootstrap.png" />
+                        <img src="https://img.icons8.com/color/480/000000/php.png" />
+                      
+                    </div>
+                    <p>
+                        fluzy is a lightweight, fast, clean and super flexible bootstrap based responsive theme for blogging website.
+                    </p>
+                    <a href="https://github.com/piyushL337/Fluzy" target="_blank" class="cta">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="projects-item">
+                <div class="projects-description has-margin-right" data-aos="fade-up" data-aos-delay="300">
+                    <div class="projects-header">
+                        <h1>Drum Kit</h1>
+                        <img src="https://img.icons8.com/color/480/000000/html-5.png"/>
+                        <img src="https://img.icons8.com/color/480/000000/css3.png"/>
+                        <img src="https://img.icons8.com/color/480/000000/javascript.png"/>
+                    </div>
+                    <p>
+                        It is a simple arcade game which is played with a tap.
+The user has to use the keyboard in order to play the game.
+Also, this project uses the NodeJs environment for setting up the server
+                    </p>
+                    <a href="https://www.piyushjoshi.tk/Drum-Kit/" target="_blank" class="cta">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <div class="projects-img" data-aos="fade-up" data-aos-delay="400">
+                    <img src="assets/images/portitem2.png" alt="2nd project">
+                </div>
+            </div>
+            
+                    
+    </section>
+
+    <!--Timeline-->
+    <section class="timelines" id="timelines">
+        <div class="container">
+            <div class="section-heading">
+                <h1>Timeline</h1>
+                <h6>Experience</h6>
+            </div>
+            <div class="timeline" data-aos="fade-up" data-aos-delay="300">
+                <ul>
+                    
+                    <li class="date" data-date="Jul 2021 - Present">
+                        <h1>Campus Ambassador at E-Cell, IIT BOMBAY</h1>
+                        
+                    </li> -->
+
+                    <li class="date" data-date="Jul 2021 - Present">
+                        <h1>Content Writer at Hariyali</h1>
+                        
+                    </li>
+
+                    <li class="date" data-date="Jun 2021 - Aug 2021">
+                        <h1>ISP at Internshala</h1>
+                        
+                    </li>
+                    
+                    <!--
+                    <li class="date" data-date="Jun 2021 - Jul 2021">
+                        <h1>Wordpress Developer at</h1>
+                        
+                    </li>
+                    
+                    <li class="date" data-date="Jun 2021 - Jul 2021">
+                        <h1>Web Developer Intern at The Sparks Foundation</h1>
+                        
+                    </li>
+                    <li class="date" data-date="May 2021 - Jun 2021">
+                        <h1>Software Engineer Intern at JPMorgan Chase & Co, Virtual</h1>
+                        
+                    </li>
+                    <li class="date" data-date="Apr 2021 - May 2021">
+                        <h1>Data Analytics Counselor Intern at KPMG</h1>
+                        
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!--Contact-->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-heading">
+                <h1>Contact</h1>
+                <h6>Let's Work Together</h6>
+            </div>
+            <div class="contact-item">
+                <div class="contact-img has-margin-right" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/contactimage.png" alt="1st project">
+                </div>
+                <div class="contact-description" data-aos="fade-up" data-aos-delay="200">
+                    <!--<h1>Get In Touch</h1>-->
+                    <p>
+                        I believe in implementing my knowledge through personal projects and contributing to open-source projects.
+                        <br>
+                        <br>
+                        Want to discuss a project, an idea, an opportunity?
+                    </p>
+                    <div class="social-media1">
+                        <ul class="nav-list">
+                            <li>
+                                <a href="mailto:piyushL337@gmail.com" target="_blank" class="icon-link">
+                                    <i class="far fa-envelope"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!--Footer-->
+    <footer class="copyright">
+        <div class="up" id="up">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        <p>
+            &lt;&#47;&#62; with ❤️ by Piyush Joshi</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
